@@ -1,7 +1,7 @@
 import os
 import uuid
 from langchain_community.document_loaders import PyPDFLoader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from app.db.vector_store import get_vector_store
 
 async def process_document(file_path: str, filename: str):
