@@ -1,15 +1,11 @@
 from langchain_openai import ChatOpenAI
 from langchain_community.chat_models import ChatTongyi
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain.chains import create_history_aware_retriever, create_retrieval_chain
-from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_core.chat_history import BaseChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
-from langchain_community.tools import DuckDuckGoSearchRun
 from langchain.agents import AgentExecutor, create_openai_tools_agent
 from app.core.config import settings
-from app.db.vector_store import get_vector_store
 import os
 from typing import Optional
 
