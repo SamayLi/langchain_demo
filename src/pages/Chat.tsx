@@ -3,6 +3,7 @@ import { ChatInput } from '../components/ChatInput';
 import axios from 'axios';
 import { Bot, User, Globe, FileText, MessageSquare, Plus, Trash2, Settings, Sidebar } from 'lucide-react';
 import { clsx } from 'clsx';
+import { generateUUID } from '../lib/utils';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -44,7 +45,7 @@ export default function Chat() {
 
   const createNewSession = () => {
     const newSession: ChatSession = {
-      id: crypto.randomUUID(),
+      id: generateUUID(),
       title: `新对话 ${sessions.length + 1}`,
       systemPrompt: '你是一位专业的宏观经济分析助手。',
       messages: [],
