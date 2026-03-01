@@ -1,3 +1,5 @@
+import os
+from typing import Optional
 from langchain_openai import ChatOpenAI
 from langchain_community.chat_models import ChatTongyi
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
@@ -6,8 +8,6 @@ from langchain_core.chat_history import BaseChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain.agents import AgentExecutor, create_openai_tools_agent
 from app.core.config import settings
-import os
-from typing import Optional
 
 # In-memory store for chat history
 store = {}
