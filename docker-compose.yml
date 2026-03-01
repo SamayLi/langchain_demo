@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./api
+    container_name: langchain_app_backend
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./api/chroma_db:/app/chroma_db
+      - ./api/uploads:/app/uploads
+      - ./api/.env:/app/.env
+    environment:
+      - CHROMA_PERSIST_DIRECTORY=/app/chroma_db
+      - UPLOAD_DIRECTORY=/app/uploads
+
+  frontend:
+    build: .
+    container_name: langchain_app_frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
